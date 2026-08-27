@@ -1,0 +1,152 @@
+/* My Nutri brand refresh — nutrition-only workspace */
+
+:root {
+  --mn-purple-50: #faf7ff;
+  --mn-purple-100: #f3ebfb;
+  --mn-purple-200: #e4d2f5;
+  --mn-purple-300: #cda9eb;
+  --mn-purple-400: #b889e1;
+  --mn-purple-500: #9b6bd0;
+  --mn-purple-600: #8251b8;
+  --mn-purple-700: #673f94;
+  --mn-text: #272331;
+  --mn-muted: #6f687a;
+}
+
+html { font-size: 16px; }
+body { font-size: 16px; color: var(--mn-text); }
+.appShell { --brand: var(--mn-purple-500) !important; }
+
+/* New grape identity */
+.brandSymbol {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px;
+  display: grid !important;
+  place-items: center;
+  border-radius: 14px;
+  background: linear-gradient(145deg, var(--mn-purple-50), var(--mn-purple-100));
+  box-shadow: inset 0 0 0 1px rgba(155,107,208,.13);
+  overflow: hidden;
+}
+.brandSymbol > svg { display: none !important; }
+.brandSymbol::before {
+  content: "";
+  width: 35px;
+  height: 35px;
+  display: block;
+  background: url('./grape-logo.svg') center/contain no-repeat;
+}
+.brandType strong {
+  color: var(--mn-purple-700) !important;
+  font-size: 1.18rem !important;
+  letter-spacing: -.02em;
+}
+.brandType span { display: none !important; }
+
+/* Nutrition-only navigation: remove chat and finance from the product surface */
+.sidebar button:has(.lucide-message-circle),
+.sidebar button:has(.lucide-wallet-cards),
+.quickGrid button:has(.lucide-receipt),
+.stat:has(.lucide-wallet-cards) {
+  display: none !important;
+}
+
+/* Remove login cards that advertise chat/finance */
+.loginFeatureGrid > div:nth-child(3),
+.loginFeatureGrid > div:nth-child(4) {
+  display: none !important;
+}
+.loginFeatureGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+/* Larger, more comfortable type scale */
+.pageIntro h1 { font-size: clamp(1.8rem, 2.2vw, 2.35rem) !important; line-height: 1.12 !important; }
+.pageIntro p,
+.sectionTitle p,
+.surface p,
+.patientPage p { font-size: .95rem !important; line-height: 1.55 !important; }
+.sectionTitle h2 { font-size: 1.22rem !important; line-height: 1.25 !important; }
+.kicker { font-size: .82rem !important; }
+
+.topbar,
+.topCrumb,
+.globalSearch,
+.sidebar nav button,
+.btn,
+input,
+select,
+textarea {
+  font-size: .94rem !important;
+}
+
+.field > span,
+.toolbar,
+.authAux,
+.navLabel,
+.badge {
+  font-size: .82rem !important;
+}
+
+small,
+.tableRow small,
+.personCell small,
+.timelineBody p,
+.stat small {
+  font-size: .79rem !important;
+  line-height: 1.4 !important;
+}
+
+/* Food library / patient diary readability */
+.dataTable { font-size: .92rem !important; }
+.tableHead {
+  font-size: .78rem !important;
+  letter-spacing: .03em;
+}
+.tableRow,
+.tableRow b,
+.personCell b {
+  font-size: .91rem !important;
+}
+.tableRow { min-height: 58px; }
+.searchBox input,
+.globalSearch,
+.field input,
+.field select,
+.field textarea { min-height: 42px; }
+.field textarea { line-height: 1.5 !important; }
+
+/* More breathing room while keeping the desktop interface efficient */
+.page { padding: 30px 34px 46px !important; }
+.surface { border-radius: 18px !important; }
+.surface,
+.authCard,
+.modal { box-shadow: 0 8px 30px rgba(72,48,94,.045) !important; }
+
+.btn.primary,
+.btn:not(.secondary):not(.ghost):not(.danger) {
+  background: linear-gradient(135deg, var(--mn-purple-500), var(--mn-purple-600)) !important;
+  border-color: transparent !important;
+}
+
+.badge.purple,
+.segmented button.active,
+.progressTrack > span {
+  background-color: var(--mn-purple-100) !important;
+  color: var(--mn-purple-700) !important;
+}
+
+.sidebar nav button.active {
+  background: var(--mn-purple-100) !important;
+  color: var(--mn-purple-700) !important;
+}
+
+/* Mobile remains comfortably readable */
+@media (max-width: 900px) {
+  html { font-size: 16px; }
+  .page { padding: 22px 18px 34px !important; }
+  .pageIntro h1 { font-size: 1.8rem !important; }
+  .dataTable { font-size: .9rem !important; }
+  .loginFeatureGrid { grid-template-columns: 1fr !important; }
+}
