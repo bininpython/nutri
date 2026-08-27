@@ -1,0 +1,182 @@
+/* My Nutri 3.0 — consolidated visual system
+   Loaded after styles.css. This replaces previous UX/brand hotfix layers. */
+
+:root{
+  --brand:#8F5CC2;
+  --brand-2:#B77BE5;
+  --brand-3:#EADAF8;
+  --brand-4:#F7F1FC;
+  --ink:#201B2B;
+  --muted:#756D80;
+  --line:#E9E1F0;
+  --surface:#FFFFFF;
+  --surface-alt:#FCF9FE;
+  --success:#238263;
+  --success-bg:#E9F7F0;
+  --warning:#A66B18;
+  --warning-bg:#FFF5DF;
+  --blue:#3975B8;
+  --blue-bg:#EDF5FD;
+  --pink:#BE5C8A;
+  --pink-bg:#FCEEF5;
+  --orange:#C66D35;
+  --orange-bg:#FFF0E6;
+  --shadow:0 14px 40px rgba(72,45,99,.08);
+  --shadow-soft:0 8px 24px rgba(72,45,99,.06);
+}
+
+html{font-size:16px;background:#F8F5FB}
+body{font-size:16px;line-height:1.45;color:var(--ink);background:linear-gradient(180deg,#FBF9FD 0%,#F7F3FA 100%)}
+#root{background:transparent}
+.appShell{--brand:#8F5CC2!important;background:linear-gradient(180deg,#FCFAFE 0%,#F7F3FA 100%)}
+.workspace{background:transparent}
+.mainContent{background:transparent}
+
+/* ---------- BRAND ---------- */
+.brand{gap:12px!important}
+.brandSymbol{
+  width:48px!important;height:48px!important;min-width:48px!important;
+  border-radius:15px!important;display:grid!important;place-items:center!important;
+  background:linear-gradient(145deg,#FBF7FF,#F1E4FB)!important;
+  border:1px solid #E3D3F1!important;
+  box-shadow:0 7px 18px rgba(113,71,151,.12),inset 0 1px 0 rgba(255,255,255,.9)!important;
+  overflow:hidden!important;color:transparent!important
+}
+.brandSymbol>svg{display:none!important}
+.brandSymbol:before{content:"";display:block;width:39px;height:41px;background:url('./grape-logo.svg') center/contain no-repeat}
+.brandType strong{font-size:1.2rem!important;font-weight:800!important;letter-spacing:-.035em!important;color:#70429A!important}
+.brandType span{display:none!important}
+.sidebar .brandType strong{color:#6E3F99!important}
+.sidebar.collapsed .brandSymbol{width:44px!important;height:44px!important;min-width:44px!important}
+.sidebar.collapsed .brandSymbol:before{width:36px;height:38px}
+
+/* ---------- SHELL / NAV ---------- */
+.sidebar,.sidebar.collapsed{
+  background:rgba(255,255,255,.98)!important;color:var(--ink)!important;
+  border-right:1px solid #E9E0F0!important;box-shadow:8px 0 30px rgba(73,45,100,.035)!important
+}
+.sideTop{border-bottom:1px solid #F0E9F5;padding-bottom:14px!important;height:62px!important}
+.collapseBtn{color:#83778C!important}.collapseBtn:hover{background:#F3EAF9!important;color:#7A49A9!important}
+.navLabel{font-size:.74rem!important;color:#9A8EA4!important;letter-spacing:.11em!important;padding-top:5px!important}
+.navGroup button{height:46px!important;font-size:.94rem!important;font-weight:650!important;color:#62596C!important;border-radius:12px!important;padding:0 13px!important}
+.navGroup button:hover{background:#F7F0FB!important;color:#6E3D9B!important}
+.navGroup button.active{background:linear-gradient(90deg,#F2E6FA,#F8F2FC)!important;color:#7143A0!important;box-shadow:inset 0 0 0 1px #E4D2F2!important}
+.navGroup button.active:before{height:26px!important;width:4px!important;background:linear-gradient(#B97FE4,#8553BD)!important}
+.sideFooter{border-color:#EFE7F4!important}.profileMini{color:#3A3143!important}.profileMini small,.logoutBtn{color:#8E8297!important}.logoutBtn:hover{background:#F8F1FC!important;color:#70429A!important}
+
+/* hard-remove non-nutrition navigation without DOM mutation */
+.sidebar button:has(.lucide-message-circle),
+.sidebar button:has(.lucide-wallet-cards),
+.quickGrid button:has(.lucide-receipt),
+.stat:has(.lucide-wallet-cards){display:none!important}
+
+.topbar{height:72px!important;background:rgba(255,255,255,.88)!important;border-bottom:1px solid #ECE3F2!important;box-shadow:0 4px 20px rgba(74,46,99,.035)!important}
+.topCrumb{font-size:.88rem!important;color:#9A8FA3!important}.topCrumb strong{font-size:.92rem!important;color:#33293D!important}
+.globalSearch{height:42px!important;min-width:250px!important;border-radius:13px!important;background:#FBF9FD!important;border-color:#E5DAED!important;font-size:.9rem!important}
+.globalSearch span{font-size:.9rem!important}.globalSearch kbd{font-size:.72rem!important}
+.avatar{background:linear-gradient(145deg,#F1E6FA,#E8D8F5)!important;color:#7346A0!important;border:1px solid #E1CFF0!important}
+
+/* ---------- TYPOGRAPHY ---------- */
+.page{padding:34px 38px 64px!important;max-width:1580px!important}
+.pageIntro{margin-bottom:26px!important}
+.pageIntro h1,.patientHeader h1,.patientWelcome h1{font-size:clamp(2rem,2.6vw,2.75rem)!important;line-height:1.06!important;letter-spacing:-.045em!important;font-weight:820!important;color:#20192A!important}
+.pageIntro p,.patientWelcome p{font-size:1rem!important;line-height:1.6!important;color:#766C80!important;max-width:760px!important}
+.kicker{font-size:.8rem!important;letter-spacing:.075em!important;font-weight:800!important;color:#8753BC!important;margin-bottom:8px!important}
+.sectionTitle h2{font-size:1.16rem!important;font-weight:780!important;letter-spacing:-.02em!important;color:#241C2D!important}
+.sectionTitle p{font-size:.94rem!important;color:#7D7286!important;line-height:1.5!important}
+.surface p,.patientPage p{font-size:.94rem;line-height:1.55}
+small{font-size:.8rem!important;line-height:1.45!important}
+.badge{font-size:.78rem!important;padding:6px 10px!important}
+.btn{height:44px!important;border-radius:12px!important;padding:0 17px!important;font-size:.91rem!important;font-weight:760!important}
+.btn.primary,.btn:not(.secondary):not(.ghost):not(.danger){background:linear-gradient(135deg,#9A64D0,#8050B4)!important;box-shadow:0 8px 20px rgba(126,77,178,.2)!important}
+.btn.primary:hover,.btn:not(.secondary):not(.ghost):not(.danger):hover{transform:translateY(-1px);filter:none!important;background:linear-gradient(135deg,#A46DD9,#7848AA)!important}
+.btn.secondary{border-color:#E3D8EA!important;color:#5F5269!important;background:#fff!important}.btn.secondary:hover{background:#F9F4FC!important;border-color:#D3BEE2!important}
+
+/* ---------- CARDS / PRIMITIVES ---------- */
+.surface{border:1px solid #E7DDED!important;border-radius:20px!important;background:rgba(255,255,255,.96)!important;box-shadow:var(--shadow-soft)!important;padding:25px 27px!important}
+.statStrip{border-radius:20px!important;border-color:#E7DDED!important;box-shadow:var(--shadow-soft)!important;overflow:hidden!important}
+.stat{min-height:118px!important;padding:22px!important}.statIcon{width:42px!important;height:42px!important;border-radius:13px!important;background:#F0E4F9!important;color:#8050B4!important}
+.stat small{font-size:.82rem!important}.stat strong{font-size:1.45rem!important}.stat span:not(.statIcon){font-size:.78rem!important}
+.stat:nth-child(2) .statIcon{background:var(--blue-bg)!important;color:var(--blue)!important}
+.stat:nth-child(3) .statIcon{background:var(--success-bg)!important;color:var(--success)!important}
+.stat:nth-child(4) .statIcon{background:var(--orange-bg)!important;color:var(--orange)!important}
+.progressTrack{height:8px!important;background:#EFE9F3!important}.progressTrack span{background:linear-gradient(90deg,#B47DE0,#8450B9)!important}
+
+.field{font-size:.9rem!important;gap:8px!important}.field>span{font-size:.87rem!important;font-weight:750!important;color:#493D54!important}
+.field input,.field select,.field textarea,.searchBox input,.toolbar select,.newMealForm input,.newGoalForm input,.newGoalForm select,.recordComposer select,.recordComposer textarea,.documentForm input,.documentForm select,.documentForm textarea{min-height:46px!important;border-radius:12px!important;border-color:#E3D8EB!important;background:#FFFEFF!important;font-size:.95rem!important;padding-left:13px!important}
+.field textarea,.recordComposer textarea{padding-top:12px!important;line-height:1.55!important}
+input:focus,select:focus,textarea:focus{border-color:#B889E1!important;box-shadow:0 0 0 3px rgba(184,137,225,.14)!important}
+
+/* ---------- LOGIN ---------- */
+.loginLayout{background:linear-gradient(135deg,#F8F1FC 0%,#FDFBFE 48%,#F2E8FA 100%)!important}
+.loginEditorial{position:relative;overflow:hidden;background:linear-gradient(145deg,#6F4097 0%,#8F5CC2 52%,#B77BE5 100%)!important;color:#fff!important}
+.loginEditorial:before{content:"";position:absolute;right:-130px;top:-100px;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.09)}
+.loginEditorial:after{content:"";position:absolute;left:-150px;bottom:-180px;width:460px;height:460px;border-radius:50%;background:rgba(255,255,255,.065)}
+.loginEditorial>*{position:relative;z-index:1}
+.loginEditorial .brandSymbol{background:rgba(255,255,255,.15)!important;border-color:rgba(255,255,255,.22)!important}.loginEditorial .brandType strong{color:#fff!important}
+.loginCopy h1{font-size:clamp(2.8rem,4.5vw,4.9rem)!important;line-height:.98!important;font-weight:850!important;letter-spacing:-.055em!important;color:#fff!important;text-shadow:0 2px 18px rgba(68,31,94,.14)}
+.loginCopy>p{font-size:1.08rem!important;color:rgba(255,255,255,.82)!important;max-width:570px!important}
+.loginFeatureGrid>div{background:rgba(255,255,255,.11)!important;border:1px solid rgba(255,255,255,.17)!important;border-radius:16px!important;padding:18px!important}.loginFeatureGrid svg{color:#fff!important}.loginFeatureGrid b{font-size:.95rem!important}.loginFeatureGrid small{font-size:.8rem!important;color:rgba(255,255,255,.72)!important}
+.loginFeatureGrid>div:nth-child(3),.loginFeatureGrid>div:nth-child(4){display:none!important}
+.loginPanel{background:transparent!important}.authCard{border-radius:24px!important;border-color:#E6D9EE!important;box-shadow:0 24px 70px rgba(90,54,117,.14)!important;padding:38px!important}.authTitle>span{font-size:.78rem!important}.authTitle h2{font-size:1.8rem!important}.authTitle p{font-size:.95rem!important}.segmented{border-radius:13px!important;padding:4px!important;background:#F4EDF8!important}.segmented button{height:44px!important;font-size:.9rem!important;border-radius:10px!important}.segmented button.active{color:#7546A3!important;background:#fff!important}.authAux{font-size:.82rem!important}.authAux button{font-size:.82rem!important}.demoNote{font-size:.8rem!important;border-radius:12px!important;background:#F8F2FC!important;padding:12px!important}
+
+/* ---------- PATIENT PLAN ---------- */
+.patientPage{max-width:1320px!important}
+.planKcal{min-width:150px!important;border-radius:16px!important;padding:14px 18px!important;background:linear-gradient(145deg,#FAF3FE,#F0E2FA)!important;border-color:#E1CCF0!important;box-shadow:0 8px 20px rgba(119,75,155,.08)!important}.planKcal small{font-size:.78rem!important;color:#866C98!important}.planKcal strong{font-size:1.35rem!important;color:#6F3E97!important}
+.macroStrip{border-radius:18px!important;border-color:#E6DAED!important;overflow:hidden!important;box-shadow:var(--shadow-soft)!important;background:#fff!important}.macroStrip>div{min-height:64px!important;align-items:center!important;padding:17px 20px!important}.macroStrip>div:nth-child(1){background:linear-gradient(180deg,#FFF,#F8F2FC)!important}.macroStrip>div:nth-child(2){background:linear-gradient(180deg,#FFF,#F1F7FD)!important}.macroStrip>div:nth-child(3){background:linear-gradient(180deg,#FFF,#FFF5EC)!important}.macroStrip>div:nth-child(4){background:linear-gradient(180deg,#FFF,#EFFAF4)!important}.macroStrip span{font-size:.83rem!important}.macroStrip b{font-size:.96rem!important;color:#33283D!important}
+.patientPlanList{padding:26px 30px!important;background:linear-gradient(180deg,#FFFFFF,#FCF9FE)!important}
+.patientPlanList article{grid-template-columns:100px 1fr!important}.patientMealTime span{font-size:.95rem!important;color:#5D4B69!important}.patientMealTime i{width:12px!important;height:12px!important;border-width:3px!important;box-shadow:0 0 0 5px #F2E6FA!important}.patientMealTime:after{background:linear-gradient(#DCC7EC,#EEE4F4)!important;width:2px!important}
+.patientMealCard{border-color:#E5D8EC!important;border-radius:17px!important;padding:19px 20px!important;margin-bottom:14px!important;box-shadow:0 7px 20px rgba(75,49,95,.045)!important;background:#fff!important}.patientMealHead small{font-size:.76rem!important}.patientMealHead h3{font-size:1.08rem!important;margin-top:5px!important}.patientMealHead p{font-size:.83rem!important}.patientFoodList{margin-top:14px!important}.patientFoodList>div{padding:11px 0!important}.patientFoodList b{font-size:.91rem!important}.patientFoodList small,.patientFoodList>div>span:last-child{font-size:.78rem!important}
+.patientFoodList>div:nth-child(3n+1) b{color:#6D4199!important}.patientFoodList>div:nth-child(3n+2) b{color:#356EA6!important}.patientFoodList>div:nth-child(3n+3) b{color:#397A5E!important}
+
+/* ---------- DIARY ---------- */
+.diaryLayout{gap:20px!important}.recordComposer,.diaryHistory{border-radius:20px!important}
+.recordComposer{background:linear-gradient(180deg,#FFFEFF,#FBF7FD)!important}.recordComposer h2,.diaryHistory h2{font-size:1.22rem!important}.recordComposer>p,.diaryHistory>p{font-size:.94rem!important;color:#776D80!important}
+.diaryHistory article{border-radius:16px!important;border-color:#E6DDED!important;padding:16px!important;background:#fff!important;box-shadow:0 5px 15px rgba(79,54,97,.035)!important}.diaryHistory article:nth-child(odd){background:linear-gradient(180deg,#FFF,#FCF8FE)!important}
+
+/* ---------- PROGRESS / CHART ---------- */
+.progressGrid{grid-template-columns:minmax(0,1.6fr) minmax(280px,.55fr)!important;gap:20px!important}
+.progressGrid>.surface:first-child{position:relative;overflow:hidden;background:linear-gradient(180deg,#FFFFFF 0%,#FCF8FF 100%)!important}
+.progressGrid>.surface:first-child:before{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#F0DDFB 0%,rgba(240,221,251,0) 70%);pointer-events:none}
+.miniChart{position:relative}.miniChart.large{padding-top:4px!important}.chartArea{height:260px!important;border-radius:16px!important;background:
+  linear-gradient(180deg,rgba(184,137,225,.07),rgba(184,137,225,.01)),
+  repeating-linear-gradient(to bottom,transparent 0,transparent 63px,rgba(117,89,138,.08) 64px)!important;
+  overflow:visible!important;padding:8px 0!important}
+.chartArea svg{overflow:visible!important}.chartLine{stroke:#8E5BC4!important;stroke-width:3!important;filter:drop-shadow(0 4px 6px rgba(126,76,177,.18))!important;stroke-linecap:round!important;stroke-linejoin:round!important}.chartDot{fill:#fff!important;stroke:#8F5CC2!important;stroke-width:2.4!important;filter:drop-shadow(0 2px 3px rgba(112,66,151,.18))!important}.gridline,.axis{stroke:#E9DEEF!important;stroke-width:1!important;stroke-dasharray:3 4!important}.chartLabels{padding-top:11px!important}.chartLabels span{font-size:.76rem!important;color:#817589!important;font-weight:620!important}.progressSummary{background:linear-gradient(150deg,#70429A 0%,#8F5CC2 55%,#B276DC 100%)!important;color:#fff!important;border-color:transparent!important;box-shadow:0 14px 34px rgba(105,62,142,.2)!important}.progressSummary>span{font-size:.76rem!important;color:rgba(255,255,255,.75)!important}.progressSummary>strong,.progressSummary>strong.positive{font-size:2.5rem!important;color:#fff!important;margin:12px 0 20px!important}.progressSummary>div{border-color:rgba(255,255,255,.16)!important;font-size:.9rem!important;padding:12px 0!important}.progressSummary small{color:rgba(255,255,255,.72)!important}.progressSummary b{color:#fff!important}
+.simpleTable.progressTable{overflow:hidden!important}.simpleTable.progressTable .simpleHead{background:#F5EDF9!important;color:#766580!important}.simpleTable.progressTable .simpleHead span{font-size:.76rem!important;font-weight:800!important}.simpleTable.progressTable .simpleRow{min-height:54px!important}.simpleTable.progressTable .simpleRow span,.simpleTable.progressTable .simpleRow b{font-size:.86rem!important}.simpleTable.progressTable .simpleRow:nth-child(even){background:#FCF9FE!important}
+
+/* ---------- FOOD LIBRARY / TABLES ---------- */
+.simpleHead,.tableHead{font-size:.78rem!important;color:#8D7F96!important;font-weight:780!important;letter-spacing:.04em!important}.simpleRow,.tableRow{font-size:.9rem!important;min-height:56px!important}.simpleRow b,.tableRow b,.personCell b{font-size:.92rem!important}.simpleRow small,.tableRow small,.personCell small{font-size:.76rem!important}.searchBox{border-radius:13px!important;background:#FBF9FD!important}.searchBox input{font-size:.92rem!important}
+
+/* ---------- BADGES / ACCENT COLOR VARIETY ---------- */
+.badge.green{background:var(--success-bg)!important;color:var(--success)!important}.badge.amber{background:var(--warning-bg)!important;color:var(--warning)!important}.badge.blue{background:var(--blue-bg)!important;color:var(--blue)!important}.badge.purple{background:#F0E3FA!important;color:#7445A2!important}
+.attentionList button:nth-child(3n+1) .avatar{background:#F0E3FA!important;color:#7445A2!important}.attentionList button:nth-child(3n+2) .avatar{background:var(--blue-bg)!important;color:var(--blue)!important}.attentionList button:nth-child(3n+3) .avatar{background:var(--success-bg)!important;color:var(--success)!important}
+.quickGrid button:nth-child(1) svg{color:#8F5CC2!important}.quickGrid button:nth-child(2) svg{color:#3C75B2!important}.quickGrid button:nth-child(3) svg{color:#2B8163!important}.quickGrid button:nth-child(4) svg{color:#C16A8B!important}
+
+/* ---------- MODALS ---------- */
+.modalBackdrop{backdrop-filter:blur(7px)!important;background:rgba(34,22,43,.38)!important}.modal{border-radius:22px!important;border-color:#E5D9EC!important;box-shadow:0 28px 80px rgba(50,29,66,.23)!important;padding:26px!important}.modalHead h2{font-size:1.42rem!important}.modalHead p{font-size:.9rem!important}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1180px){
+  .page{padding:30px 28px 54px!important}.progressGrid{grid-template-columns:1fr!important}.progressSummary{display:grid!important;grid-template-columns:1fr 1fr 1fr;gap:0 20px!important}.progressSummary>span,.progressSummary>strong{grid-column:1/-1}.progressSummary>div{display:flex!important}
+}
+
+@media(max-width:900px){
+  .sidebar,.sidebar.collapsed{width:min(82vw,310px)!important}.page{padding:24px 18px 46px!important}.topbar{height:64px!important;padding:0 14px!important}.mainContent{min-height:calc(100vh - 64px)!important}.topCrumb strong{font-size:.9rem!important}
+  .surface{padding:20px!important;border-radius:17px!important}.pageIntro h1,.patientWelcome h1{font-size:2rem!important}.pageIntro p,.patientWelcome p{font-size:.95rem!important}.pageIntro{align-items:flex-start!important;flex-direction:column!important}.pageActions{width:100%!important}.pageActions .btn{flex:1!important}
+  .patientPlanList{padding:18px!important}.patientPlanList article{grid-template-columns:72px 1fr!important}.patientMealCard{padding:16px!important}.macroStrip{grid-template-columns:1fr 1fr!important}.macroStrip>div:nth-child(2){border-right:0!important}.macroStrip>div:nth-child(-n+2){border-bottom:1px solid var(--line)!important}
+  .chartArea{height:230px!important}.progressSummary{grid-template-columns:1fr!important}.progressSummary>span,.progressSummary>strong{grid-column:auto!important}
+  .simpleTable.progressTable{overflow-x:auto!important}.simpleTable.progressTable .simpleHead,.simpleTable.progressTable .simpleRow{min-width:760px!important}
+}
+
+@media(max-width:650px){
+  html{font-size:16px!important}.page{padding:19px 14px 38px!important}.surface{padding:17px!important;border-radius:16px!important}.brandSymbol{width:44px!important;height:44px!important;min-width:44px!important}.brandSymbol:before{width:35px;height:37px}.brandType strong{font-size:1.08rem!important}
+  .pageIntro h1,.patientWelcome h1{font-size:1.82rem!important}.pageIntro p,.patientWelcome p{font-size:.93rem!important}.sectionTitle h2{font-size:1.05rem!important}.sectionTitle p{font-size:.88rem!important}.kicker{font-size:.74rem!important}.btn{min-height:46px!important;font-size:.9rem!important}
+  .statStrip,.statStrip.three{grid-template-columns:1fr!important}.stat{border-right:0!important;border-bottom:1px solid var(--line)!important}.stat:last-child{border-bottom:0!important}.statStrip.three .stat:nth-child(3){grid-column:auto!important}
+  .macroStrip{display:grid!important;grid-template-columns:1fr 1fr!important}.macroStrip>div{padding:14px!important;min-height:58px!important}.macroStrip span{font-size:.78rem!important}.macroStrip b{font-size:.9rem!important}
+  .patientPlanList{padding:12px!important}.patientPlanList article{grid-template-columns:54px 1fr!important}.patientMealTime span{font-size:.8rem!important}.patientMealTime i{right:8px!important}.patientMealTime:after{right:13px!important}.patientMealCard{padding:14px!important;border-radius:14px!important}.patientFoodList>div{align-items:flex-start!important;gap:8px!important}.patientFoodList>div>span:last-child{display:none!important}.patientFoodList b{font-size:.88rem!important}.patientFoodList small{font-size:.76rem!important}
+  .chartArea{height:205px!important}.chartLabels{gap:8px!important}.chartLabels span{font-size:.68rem!important}.progressSummary>strong,.progressSummary>strong.positive{font-size:2.1rem!important}
+  .loginPanel{padding:14px!important}.authCard{padding:24px 18px!important;border-radius:18px!important}.authTitle h2{font-size:1.55rem!important}.mobileBrand{margin-bottom:22px!important}
+  .field input,.field select,.field textarea,.searchBox input{font-size:16px!important}
+  .diaryLayout{gap:14px!important}.recordComposer,.diaryHistory{padding:17px!important}
+}
