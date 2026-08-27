@@ -1,0 +1,105 @@
+/* My Nutri layout stability layer — loaded last.
+   Fixes desktop width/collapsed-sidebar clipping and standardizes responsive geometry. */
+
+html,body,#root{width:100%;min-width:320px;overflow-x:hidden}
+body{margin:0}
+
+/* Fixed sidebar must not also reserve a CSS grid column. */
+.appShell,
+.appShell.sideCollapsed{
+  display:block!important;
+  width:100%!important;
+  min-height:100vh!important;
+  grid-template-columns:none!important;
+}
+
+.workspace{
+  margin-left:258px!important;
+  width:calc(100% - 258px)!important;
+  max-width:none!important;
+  min-width:0!important;
+}
+.appShell.sideCollapsed .workspace{
+  margin-left:80px!important;
+  width:calc(100% - 80px)!important;
+}
+
+.topbar,.mainContent{width:100%!important;max-width:none!important;min-width:0!important}
+.mainContent{overflow-x:hidden!important}
+.page{width:100%!important;max-width:1580px!important;margin:0 auto!important}
+.patientPage{width:100%!important;max-width:1450px!important}
+
+/* Brand: one clean symbol, no stacked/legacy artwork. */
+.brandSymbol{
+  width:48px!important;height:48px!important;min-width:48px!important;
+  padding:5px!important;overflow:hidden!important;
+  background:linear-gradient(145deg,#FFFFFF,#F7F0FC)!important;
+  border:1px solid #E4D5EF!important;
+  box-shadow:0 7px 18px rgba(105,61,145,.10)!important;
+}
+.brandSymbol>svg{display:none!important;visibility:hidden!important}
+.brandSymbol:before{
+  content:""!important;
+  display:block!important;
+  width:100%!important;height:100%!important;
+  background:url('./grape-logo-v2.svg') center/contain no-repeat!important;
+}
+.sidebar.collapsed .brandSymbol{width:46px!important;height:46px!important;min-width:46px!important;padding:5px!important}
+.sidebar.collapsed .brandSymbol:before{width:100%!important;height:100%!important}
+
+/* Make progression screen structurally safe at every desktop width. */
+.progressGrid{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.65fr) minmax(300px,.55fr)!important;
+  width:100%!important;
+  gap:20px!important;
+  align-items:stretch!important;
+}
+.progressGrid>.surface{min-width:0!important;width:100%!important}
+.progressGrid>.surface:first-child{overflow:hidden!important}
+.progressSummary{min-width:0!important}
+
+.miniChart{width:100%!important;min-width:0!important}
+.miniChart .chartArea{width:100%!important;overflow:hidden!important}
+.miniChart svg{display:block!important;width:100%!important;max-width:100%!important}
+.chartLabels{display:grid!important;grid-template-columns:repeat(var(--chart-count,4),minmax(0,1fr))!important;width:100%!important;gap:8px!important}
+.chartLabels span{min-width:0!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+
+.simpleTable{width:100%!important;max-width:100%!important;overflow-x:auto!important}
+.simpleTable.progressTable{min-width:0!important}
+.simpleTable.progressTable .simpleHead,
+.simpleTable.progressTable .simpleRow{min-width:860px!important}
+
+/* Prevent headings/actions from crushing one another. */
+.pageIntro{width:100%!important;min-width:0!important;flex-wrap:wrap!important}
+.pageIntro>div:first-child{min-width:0!important;flex:1 1 520px!important}
+.pageActions{flex:0 0 auto!important}
+.pageIntro h1{overflow-wrap:anywhere!important}
+
+/* Mobile/tablet */
+@media(max-width:1180px){
+  .progressGrid{grid-template-columns:1fr!important}
+}
+
+@media(max-width:900px){
+  .workspace,
+  .appShell.sideCollapsed .workspace{
+    margin-left:0!important;
+    width:100%!important;
+  }
+  .sidebar,.sidebar.collapsed{width:278px!important}
+  .page,.patientPage{max-width:none!important;width:100%!important}
+  .topbar{width:100%!important}
+  .progressGrid{grid-template-columns:1fr!important}
+  .simpleTable.progressTable{overflow-x:auto!important;-webkit-overflow-scrolling:touch}
+}
+
+@media(max-width:650px){
+  .page{padding-left:16px!important;padding-right:16px!important}
+  .pageIntro>div:first-child{flex-basis:100%!important}
+  .pageActions{width:100%!important}
+  .pageActions .btn{width:100%!important}
+  .progressGrid{gap:14px!important}
+  .progressSummary{padding:22px!important}
+  .chartLabels{font-size:.7rem!important}
+}
