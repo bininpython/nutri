@@ -1,0 +1,254 @@
+/* My Nutri UI hotfix — stable desktop + mobile */
+
+:root{
+  --mn-bg:#fbf9fd;
+  --mn-surface:#ffffff;
+  --mn-border:#eadff4;
+  --mn-purple:#9863d5;
+  --mn-purple-dark:#673f94;
+  --mn-purple-soft:#f3ebfb;
+  --mn-text:#241b2f;
+  --mn-muted:#766d80;
+}
+
+*{box-sizing:border-box}
+html,body,#root{min-height:100%;width:100%;margin:0}
+body{background:var(--mn-bg);color:var(--mn-text);overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+img,svg{max-width:100%}
+
+/* LOGIN — fixes washed-out/oversized left panel */
+.loginLayout{
+  min-height:100dvh !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,1.15fr) minmax(420px,.85fr) !important;
+  background:linear-gradient(135deg,#fcfaff 0%,#f8f2fc 100%) !important;
+}
+.loginEditorial{
+  min-width:0 !important;
+  padding:48px clamp(36px,5vw,88px) !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:space-between !important;
+  gap:36px !important;
+  color:var(--mn-text) !important;
+  background:radial-gradient(circle at 22% 28%,rgba(184,137,225,.18),transparent 34%),transparent !important;
+}
+.loginEditorial .brand{align-self:flex-start}
+.loginCopy{max-width:650px !important}
+.loginCopy h1{
+  color:var(--mn-text) !important;
+  font-size:clamp(2.35rem,4.2vw,4.5rem) !important;
+  line-height:.98 !important;
+  letter-spacing:-.055em !important;
+  margin:20px 0 18px !important;
+  text-wrap:balance;
+}
+.loginCopy p{
+  color:#685f73 !important;
+  font-size:1.08rem !important;
+  line-height:1.6 !important;
+  max-width:640px !important;
+}
+.loginFeatureGrid{
+  width:min(100%,700px) !important;
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:14px !important;
+}
+.loginFeatureGrid>div{
+  min-height:90px !important;
+  padding:18px !important;
+  border:1px solid var(--mn-border) !important;
+  background:rgba(255,255,255,.74) !important;
+  border-radius:18px !important;
+  color:var(--mn-text) !important;
+}
+.loginFeatureGrid b{font-size:.96rem !important;color:var(--mn-text)!important}
+.loginFeatureGrid small{font-size:.84rem !important;color:var(--mn-muted)!important}
+.loginPanel{
+  min-width:0 !important;
+  display:grid !important;
+  place-items:center !important;
+  padding:32px clamp(24px,4vw,64px) !important;
+  background:rgba(255,255,255,.58) !important;
+}
+.authCard{
+  width:min(100%,520px) !important;
+  padding:34px !important;
+  border-radius:24px !important;
+  border:1px solid var(--mn-border) !important;
+  background:#fff !important;
+  box-shadow:0 24px 70px rgba(77,45,105,.12)!important;
+}
+.authTitle h2{font-size:1.85rem!important;color:var(--mn-text)!important}
+.authTitle p{font-size:.96rem!important;color:var(--mn-muted)!important}
+.segmented{min-height:48px!important}
+.segmented button{min-height:46px!important;font-size:.92rem!important}
+.authCard input{min-height:48px!important;font-size:1rem!important}
+.authCard .btn.full{min-height:50px!important;font-size:1rem!important}
+.demoNote{font-size:.83rem!important;line-height:1.45!important}
+.loginLegal{color:var(--mn-muted)!important}
+
+/* APP SHELL */
+.appShell{min-height:100dvh!important;background:var(--mn-bg)!important}
+.workspace{min-width:0!important;background:var(--mn-bg)!important}
+.mainContent{min-width:0!important}
+.sidebar{
+  background:#fff!important;
+  border-right:1px solid var(--mn-border)!important;
+}
+.topbar{
+  background:rgba(255,255,255,.94)!important;
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--mn-border)!important;
+}
+.page{
+  width:100%!important;
+  max-width:1540px!important;
+  margin:0 auto!important;
+  padding:30px clamp(22px,3vw,48px) 48px!important;
+}
+.pageIntro{gap:20px!important;align-items:flex-end!important}
+.pageIntro h1{font-size:clamp(2rem,3vw,2.75rem)!important;color:var(--mn-text)!important}
+.pageIntro p{color:var(--mn-muted)!important;font-size:1rem!important}
+.surface{
+  background:#fff!important;
+  border:1px solid var(--mn-border)!important;
+  border-radius:22px!important;
+  box-shadow:0 12px 35px rgba(75,47,98,.055)!important;
+}
+.sectionTitle h2{font-size:1.25rem!important;color:var(--mn-text)!important}
+.sectionTitle p{font-size:.94rem!important;color:var(--mn-muted)!important}
+
+/* Better data readability */
+.dataTable{width:100%!important;font-size:.94rem!important}
+.tableHead{font-size:.78rem!important;color:#81778b!important}
+.tableRow{min-height:62px!important}
+.tableRow b,.personCell b{font-size:.94rem!important}
+.tableRow small,.personCell small{font-size:.8rem!important}
+.field>span{font-size:.88rem!important;font-weight:650!important}
+.field input,.field select,.field textarea,.searchBox input{
+  min-height:46px!important;
+  font-size:.98rem!important;
+  border-radius:12px!important;
+}
+.field textarea{min-height:110px!important}
+.btn{min-height:42px!important;border-radius:12px!important;font-weight:700!important}
+
+/* Evolution / charts: avoid huge empty canvas feeling */
+.progressLayout,.progressGrid,.dashboardColumns{gap:18px!important}
+.chartCard,.progressChart,.surface:has(svg){min-width:0!important}
+
+/* Hide non-nutrition modules without DOM mutation observers */
+.sidebar button:has(.lucide-message-circle),
+.sidebar button:has(.lucide-wallet-cards),
+.quickGrid button:has(.lucide-receipt),
+.stat:has(.lucide-wallet-cards){display:none!important}
+
+/* Tablet */
+@media (max-width:1100px){
+  .loginLayout{grid-template-columns:1fr 460px!important}
+  .loginEditorial{padding:36px!important}
+  .loginCopy h1{font-size:clamp(2.2rem,5vw,3.4rem)!important}
+  .dashboardColumns{grid-template-columns:1fr!important}
+  .statStrip{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+
+/* Mobile */
+@media (max-width:760px){
+  html{font-size:16px!important}
+  body{background:#fbf9fd!important}
+  .loginLayout{display:block!important;min-height:100dvh!important}
+  .loginEditorial{
+    min-height:auto!important;
+    padding:24px 20px 16px!important;
+    gap:20px!important;
+    background:linear-gradient(160deg,#fbf8ff,#f5edfb)!important;
+  }
+  .loginEditorial>.brand{margin-bottom:6px!important}
+  .loginCopy{max-width:none!important}
+  .loginCopy h1{font-size:2.15rem!important;line-height:1.02!important;margin:12px 0!important}
+  .loginCopy p{font-size:.98rem!important;line-height:1.5!important}
+  .loginFeatureGrid{display:none!important}
+  .loginLegal{display:none!important}
+  .loginPanel{display:block!important;padding:0 16px 28px!important;background:#f5edfb!important}
+  .authCard{width:100%!important;padding:22px 18px!important;border-radius:22px!important;box-shadow:0 14px 40px rgba(77,45,105,.10)!important}
+  .authTitle h2{font-size:1.55rem!important}
+  .mobileBrand{display:none!important}
+  .segmented{display:grid!important;grid-template-columns:1fr 1fr!important}
+  .authAux{gap:12px!important;flex-wrap:wrap!important}
+
+  .sidebar{
+    position:fixed!important;
+    top:0!important;bottom:0!important;left:0!important;
+    width:min(86vw,320px)!important;
+    z-index:1000!important;
+    transform:translateX(-105%)!important;
+    transition:transform .22s ease!important;
+    box-shadow:20px 0 60px rgba(48,27,64,.14)!important;
+  }
+  .mobileNavOpen .sidebar{transform:translateX(0)!important}
+  .workspace{width:100%!important;margin-left:0!important}
+  .topbar{height:64px!important;padding:0 14px!important;position:sticky!important;top:0!important;z-index:50!important}
+  .mobileMenu{display:grid!important;place-items:center!important}
+  .topCrumb>span,.topCrumb>svg{display:none!important}
+  .topCrumb strong{font-size:1rem!important}
+  .globalSearch{width:40px!important;min-width:40px!important;padding:0!important;display:grid!important;place-items:center!important}
+  .globalSearch span,.globalSearch kbd{display:none!important}
+  .topActions{gap:8px!important}
+  .topActions .avatar{width:36px!important;height:36px!important}
+
+  .page{padding:20px 14px 92px!important;max-width:none!important}
+  .pageIntro{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:14px!important}
+  .pageIntro h1{font-size:1.85rem!important}
+  .pageIntro p{font-size:.95rem!important}
+  .pageActions{display:grid!important;grid-template-columns:1fr!important;width:100%!important}
+  .pageActions .btn{width:100%!important}
+  .surface{border-radius:18px!important;padding:16px!important}
+  .sectionTitle{align-items:flex-start!important;gap:12px!important}
+  .sectionTitle h2{font-size:1.16rem!important}
+  .sectionTitle p{font-size:.9rem!important}
+  .statStrip{grid-template-columns:1fr 1fr!important;gap:10px!important}
+  .stat{min-width:0!important;padding:14px!important}
+  .stat strong{font-size:1.25rem!important}
+  .dashboardColumns,.dashboardColumns.lower{grid-template-columns:1fr!important;gap:14px!important}
+  .quickGrid{grid-template-columns:1fr!important}
+
+  .toolbar{display:grid!important;grid-template-columns:1fr!important;gap:10px!important}
+  .searchBox{width:100%!important;min-width:0!important}
+  .searchBox input{width:100%!important;min-width:0!important}
+
+  /* Tables become cards to eliminate horizontal overflow */
+  .dataTable{display:grid!important;gap:10px!important;background:transparent!important}
+  .tableHead{display:none!important}
+  .tableRow{
+    display:grid!important;
+    grid-template-columns:1fr auto!important;
+    gap:8px 12px!important;
+    align-items:center!important;
+    min-height:auto!important;
+    padding:14px!important;
+    border:1px solid var(--mn-border)!important;
+    border-radius:15px!important;
+    background:#fff!important;
+  }
+  .tableRow>span{min-width:0!important;font-size:.9rem!important}
+  .tableRow>.personCell{grid-column:1/-1!important}
+  .tableRow>.adherenceCell{grid-column:1/-1!important;width:100%!important}
+  .tableRow>svg{justify-self:end!important}
+
+  .timelineItem{grid-template-columns:auto 1fr auto!important;padding:12px 0!important}
+  .timelineDot{display:none!important}
+  .modalBackdrop{padding:0!important;align-items:flex-end!important}
+  .modal{width:100%!important;max-width:none!important;max-height:92dvh!important;border-radius:22px 22px 0 0!important;padding:18px!important;overflow:auto!important}
+
+  input,select,textarea{font-size:16px!important}
+}
+
+@media (max-width:430px){
+  .statStrip{grid-template-columns:1fr!important}
+  .page{padding-left:12px!important;padding-right:12px!important}
+  .authCard{padding:20px 16px!important}
+  .loginCopy h1{font-size:1.95rem!important}
+}
