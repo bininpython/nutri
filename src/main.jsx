@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './styles.css'
 import './ux-fixes.css'
 import './brand-refresh.css'
+import './product-refresh.js'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
