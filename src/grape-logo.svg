@@ -1,17 +1,24 @@
-<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="120" height="136" viewBox="34 10 92 126" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="g" x1="42" y1="35" x2="118" y2="130" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#C9A7EE"/>
-      <stop offset="1" stop-color="#8D5CC1"/>
+    <linearGradient id="berry" x1="45" y1="45" x2="110" y2="126" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D8B8F4"/>
+      <stop offset="0.48" stop-color="#A978DB"/>
+      <stop offset="1" stop-color="#7D4DB2"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="73" y1="21" x2="116" y2="53" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C99BEC"/>
+      <stop offset="1" stop-color="#9A67CB"/>
     </linearGradient>
   </defs>
-  <path d="M72 42C67 28 58 20 45 16" stroke="#9767C7" stroke-width="8" stroke-linecap="round"/>
-  <path d="M73 41C83 22 101 17 120 21C116 41 101 52 80 50L73 41Z" fill="#B889E1"/>
-  <path d="M83 43C93 32 102 27 113 24" stroke="#F5EEFC" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="52" cy="63" r="17" fill="url(#g)"/>
-  <circle cx="80" cy="63" r="17" fill="url(#g)"/>
-  <circle cx="108" cy="63" r="17" fill="url(#g)"/>
-  <circle cx="66" cy="91" r="17" fill="url(#g)"/>
-  <circle cx="94" cy="91" r="17" fill="url(#g)"/>
-  <circle cx="80" cy="119" r="17" fill="url(#g)"/>
+  <path d="M72 43C67 29 58 21 46 17" stroke="#8F5CC2" stroke-width="7" stroke-linecap="round"/>
+  <path d="M73 42C84 23 101 18 120 22C116 41 101 52 80 50L73 42Z" fill="url(#leaf)"/>
+  <path d="M84 43C94 33 103 27 113 24" stroke="#F5EEFC" stroke-width="3.7" stroke-linecap="round" opacity=".92"/>
+  <circle cx="52" cy="64" r="16.5" fill="url(#berry)"/>
+  <circle cx="80" cy="64" r="16.5" fill="url(#berry)"/>
+  <circle cx="108" cy="64" r="16.5" fill="url(#berry)"/>
+  <circle cx="66" cy="92" r="16.5" fill="url(#berry)"/>
+  <circle cx="94" cy="92" r="16.5" fill="url(#berry)"/>
+  <circle cx="80" cy="120" r="16.5" fill="url(#berry)"/>
+  <ellipse cx="46.5" cy="58" rx="4" ry="6" fill="#E9D4FA" opacity=".45"/>
+  <ellipse cx="74.5" cy="58" rx="4" ry="6" fill="#E9D4FA" opacity=".38"/>
 </svg>
