@@ -1,0 +1,24 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grape" x1="32" y1="34" x2="94" y2="112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B77BE5"/>
+      <stop offset="0.52" stop-color="#8E5BC2"/>
+      <stop offset="1" stop-color="#68389A"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="61" y1="15" x2="104" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7CCB8A"/>
+      <stop offset="1" stop-color="#43A968"/>
+    </linearGradient>
+  </defs>
+  <path d="M59 36C56 26 49 20 40 16" stroke="#70409D" stroke-width="7" stroke-linecap="round"/>
+  <path d="M60 36C69 19 84 14 102 18C98 36 84 45 66 44L60 36Z" fill="url(#leaf)"/>
+  <path d="M70 38C79 29 87 23 96 20" stroke="#E9F8ED" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+  <circle cx="39" cy="56" r="15" fill="url(#grape)"/>
+  <circle cx="64" cy="56" r="15" fill="url(#grape)"/>
+  <circle cx="89" cy="56" r="15" fill="url(#grape)"/>
+  <circle cx="51.5" cy="81" r="15" fill="url(#grape)"/>
+  <circle cx="76.5" cy="81" r="15" fill="url(#grape)"/>
+  <circle cx="64" cy="106" r="15" fill="url(#grape)"/>
+  <ellipse cx="34" cy="51" rx="4.5" ry="6" fill="#E9D4FA" opacity=".45"/>
+  <ellipse cx="59" cy="51" rx="4.5" ry="6" fill="#E9D4FA" opacity=".38"/>
+</svg>
