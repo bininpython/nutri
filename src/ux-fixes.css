@@ -1,0 +1,174 @@
+/* my nutri — layout, typography and brand refinements */
+:root{
+  --brand:#7b56c5;
+  --brand-strong:#6841b3;
+  --brand-soft:#f2edf9;
+  --text:#24212a;
+  --text-2:#5e5864;
+  --text-3:#847d89;
+  --border:#e3dfe6;
+  --page:#f6f6f8;
+  --surface:#ffffff;
+  --sidebar:#1c1921;
+  font-family:"Segoe UI Variable Text","Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  font-size:16px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+
+html,body,#root{width:100%;min-width:320px;min-height:100%;}
+body{overflow-x:hidden;color:var(--text);background:var(--page);}
+
+/* Core shell fix: fixed sidebar must not participate in the grid flow. */
+.appShell,
+.appShell.sideCollapsed{
+  display:block !important;
+  width:100%;
+  min-height:100vh;
+  padding-left:258px;
+  background:var(--page);
+  transition:padding-left .18s ease;
+}
+.appShell.sideCollapsed{padding-left:80px;}
+.workspace{width:100%;min-width:0;max-width:none;}
+.mainContent{width:100%;min-width:0;}
+.topbar{width:100%;}
+.page{width:100%;max-width:1480px;margin:0 auto;padding:36px 42px 64px;}
+.page.fullHeight{width:100%;max-width:none;margin:0;height:calc(100vh - 68px);padding:28px 34px;}
+
+/* Typography tuned for readability rather than compact mockup styling. */
+body,button,input,select,textarea{font-size:14px;}
+h1,h2,h3,strong,b{font-feature-settings:"kern" 1,"liga" 1;}
+.pageIntro h1,.patientHeader h1{font-size:32px;line-height:1.18;letter-spacing:-.65px;font-weight:720;color:#201d25;}
+.pageIntro p{font-size:14px;line-height:1.55;color:var(--text-2);margin-top:7px;}
+.kicker{font-size:11px;line-height:1.3;letter-spacing:1.25px;font-weight:760;margin-bottom:10px;}
+.sectionTitle h2{font-size:17px;line-height:1.35;font-weight:700;color:#27232c;letter-spacing:-.15px;}
+.sectionTitle p{font-size:13px;line-height:1.55;color:#716a76;margin-top:4px;}
+.surface{border-color:var(--border);border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(31,26,37,.025);}
+.btn{height:40px;padding:0 15px;border-radius:9px;font-size:13px;font-weight:680;}
+.field{font-size:13px;gap:7px;color:#4d4752;font-weight:650;}
+.field input,.field select,.field textarea,.searchBox input,.toolbar select,.newMealForm input,.newGoalForm input,.newGoalForm select,.recordComposer select,.recordComposer textarea,.chatComposer input,.documentForm input,.documentForm select,.documentForm textarea{min-height:42px;font-size:14px;line-height:1.4;}
+.badge{font-size:11px;padding:5px 9px;}
+
+/* Sidebar text — slightly larger, cleaner and more legible. */
+.sidebar{width:258px;padding:18px 14px 14px;}
+.sidebar.collapsed{width:80px;}
+.navLabel{font-size:10.5px;letter-spacing:1.35px;padding:0 11px 9px;color:#8d8693;}
+.navGroup button{height:44px;font-size:14px;font-weight:580;color:#c4bec9;gap:12px;}
+.navGroup button:hover{color:#fff;background:#26222c;}
+.navGroup button.active{background:#302b38;color:#fff;font-weight:650;}
+.profileMini b{font-size:13px;}
+.profileMini small{font-size:11px;}
+.logoutBtn{font-size:13px;}
+
+/* Professional grape brand. Existing abstract SVG is hidden and replaced by an original grape mark. */
+.brandSymbol{width:36px;height:36px;display:grid;place-items:center;position:relative;flex:0 0 36px;}
+.brandSymbol>svg{display:none !important;}
+.brandSymbol::before{
+  content:"";
+  width:36px;height:36px;display:block;
+  background-repeat:no-repeat;background-size:contain;background-position:center;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='13' fill='%237b56c5'/%3E%3Cpath d='M27.6 12.2c3.4-3.1 7.3-2.7 9.8-.4-2.3 3.2-6.1 4.7-9.8 3.8' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M25.6 13.2c-.4 2.3-.2 4.1.7 5.7' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round'/%3E%3Ccircle cx='20' cy='20' r='4.2' fill='%23fff'/%3E%3Ccircle cx='28' cy='20' r='4.2' fill='%23fff' opacity='.96'/%3E%3Ccircle cx='16' cy='27' r='4.2' fill='%23fff' opacity='.94'/%3E%3Ccircle cx='24' cy='27' r='4.2' fill='%23fff'/%3E%3Ccircle cx='32' cy='27' r='4.2' fill='%23fff' opacity='.94'/%3E%3Ccircle cx='20' cy='34' r='4.2' fill='%23fff' opacity='.92'/%3E%3Ccircle cx='28' cy='34' r='4.2' fill='%23fff' opacity='.92'/%3E%3Ccircle cx='24' cy='40' r='3.7' fill='%23fff' opacity='.88'/%3E%3C/svg%3E");
+}
+.sidebar .brandSymbol::before{box-shadow:0 7px 18px rgba(123,86,197,.22);}
+.brandType{line-height:1.05;}
+.brandType strong{font-size:19px;letter-spacing:-.35px;font-weight:730;color:#f4effb;}
+.brandType span{font-size:9.5px;line-height:1.3;letter-spacing:1.25px;color:#a8a0ad;margin-top:5px;}
+.loginPanel .brandType strong,.mobileBrand .brandType strong{color:#2b2630;}
+
+/* Top bar */
+.topbar{height:70px;padding:0 40px;background:rgba(255,255,255,.97);}
+.topCrumb{font-size:13px;}
+.topCrumb strong{font-weight:650;}
+.globalSearch{height:38px;min-width:250px;font-size:13px;}
+.globalSearch span{font-size:13px;}
+
+/* Dashboard density and readable tables */
+.statStrip{border-color:var(--border);}
+.stat{min-height:112px;padding:22px;}
+.stat small{font-size:12px;line-height:1.35;color:#746e79;}
+.stat strong{font-size:23px;line-height:1.2;margin-top:5px;}
+.stat span:not(.statIcon){font-size:11.5px;line-height:1.4;margin-top:4px;}
+.timelineItem{min-height:78px;grid-template-columns:76px 22px minmax(0,1fr) 24px;}
+.timeBlock strong{font-size:14px;}
+.timeBlock span{font-size:11px;}
+.timelineBody strong{font-size:13.5px;}
+.timelineBody p{font-size:12px;line-height:1.45;}
+.dataTable{font-size:13px;}
+.tableHead{font-size:11.5px;}
+.tableRow{min-height:62px;}
+.personCell b{font-size:13.5px;}
+.personCell small{font-size:11.5px;line-height:1.4;}
+
+/* Settings and other two-column pages must use available width. */
+.settingsGrid,.dashboardColumns,.dashboardColumns.lower,.patientWorkspace,.planWorkspace,.reportsGrid,.financeGrid{min-width:0;}
+.settingsGrid{grid-template-columns:minmax(0,1.45fr) minmax(320px,.75fr);gap:20px;align-items:start;}
+.dashboardColumns{grid-template-columns:minmax(0,1.7fr) minmax(340px,.8fr);gap:20px;}
+.dashboardColumns.lower{grid-template-columns:minmax(0,1.7fr) minmax(320px,.72fr);gap:20px;}
+
+/* Login — keep copy inside a comfortable human reading width. */
+.loginLayout{grid-template-columns:minmax(560px,1.05fr) minmax(500px,.95fr);}
+.loginEditorial{padding:48px 64px;}
+.loginCopy{max-width:650px;}
+.loginCopy h1{font-size:46px;line-height:1.08;letter-spacing:-1.45px;font-weight:720;max-width:620px;}
+.loginCopy>p{font-size:17px;line-height:1.65;color:#b9b3be;max-width:590px;}
+.loginFeatureGrid{gap:12px;max-width:680px;}
+.loginFeatureGrid>div{min-height:76px;padding:15px 16px;border-color:#393440;}
+.loginFeatureGrid b{font-size:13px;line-height:1.3;}
+.loginFeatureGrid small{font-size:11px;line-height:1.45;margin-top:4px;color:#a49daa;}
+.loginLegal{font-size:10.5px;}
+.authCard{width:min(460px,100%);padding:38px;}
+.authTitle h2{font-size:27px;}
+.authTitle p{font-size:13px;line-height:1.5;}
+.authTitle>span{font-size:10.5px;}
+.segmented button{height:40px;font-size:12.5px;}
+.authAux,.authAux button{font-size:11.5px;}
+.demoNote{font-size:10.5px;line-height:1.5;}
+
+/* Large screens: avoid a visually empty right half while keeping comfortable line lengths. */
+@media (min-width:1700px){
+  .page{max-width:1540px;padding-left:48px;padding-right:48px;}
+}
+
+@media (max-width:1180px){
+  .page{padding:30px 28px 52px;}
+  .dashboardColumns,.dashboardColumns.lower,.settingsGrid{grid-template-columns:1fr;}
+  .statStrip{grid-template-columns:repeat(2,1fr);}
+  .stat:nth-child(2){border-right:0;}
+  .stat:nth-child(-n+2){border-bottom:1px solid var(--border);}
+  .loginLayout{grid-template-columns:1fr 1fr;}
+  .loginEditorial{padding:42px 38px;}
+  .loginCopy h1{font-size:38px;}
+}
+
+@media (max-width:900px){
+  .appShell,.appShell.sideCollapsed{padding-left:0 !important;}
+  .sidebar{transform:translateX(-100%);box-shadow:14px 0 42px rgba(20,16,25,.18);}
+  .sidebar.mobileOpen{transform:translateX(0);}
+  .topbar{padding:0 18px;height:64px;}
+  .mobileMenu{display:grid;place-items:center;width:36px;height:36px;border:0;background:transparent;border-radius:8px;}
+  .topCrumb{display:none;}
+  .globalSearch{min-width:0;width:38px;padding:0;justify-content:center;}
+  .globalSearch span,.globalSearch kbd{display:none;}
+  .page{padding:24px 18px 48px;}
+  .page.fullHeight{height:auto;min-height:calc(100vh - 64px);padding:20px 16px;}
+  .pageIntro{align-items:flex-start;flex-direction:column;gap:16px;}
+  .pageIntro h1,.patientHeader h1{font-size:28px;}
+  .loginLayout{display:block;min-height:100vh;}
+  .loginEditorial{display:none;}
+  .loginPanel{min-height:100vh;padding:24px 18px;}
+  .mobileBrand{display:block;margin-bottom:26px;}
+  .authCard{padding:28px 24px;}
+}
+
+@media (max-width:640px){
+  .statStrip,.statStrip.three{grid-template-columns:1fr;}
+  .stat,.stat:nth-child(2){border-right:0;border-bottom:1px solid var(--border);}
+  .stat:last-child{border-bottom:0;}
+  .pageActions{width:100%;flex-wrap:wrap;}
+  .pageActions .btn{flex:1;}
+  .formGrid.cols2{grid-template-columns:1fr;}
+  .surface{padding:18px;}
+}
